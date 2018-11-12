@@ -1,0 +1,29 @@
+<%- include('../header') %>
+
+<!-- <button type="button" class="btn btn-light">Light</button> -->
+<!-- AO INVÉS DE USAR O BUTTON, INSERIMOS A CLASSE NO HREF ABAIXO -->
+<!-- LISTANDO AS CATEGORIAS DO OBJETO "categorias" -->
+
+<a href="/publicacoes/nova" class="btn btn-light">Nova publicação</a><br/>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Publicação</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% publicacoes.forEach(publicacao => { %>
+      <tr>
+        <td><%= publicacao.titulo %></td>
+        <td>
+            <a href="/publicacoes/editar/<%= categoria %>/<%= publicacao.id %>">Editar</a>
+            <a href="/publicacoes/excluir/<%= categoria %>/<%= publicacao.id %>">Excluir</a>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<%- include('../footer') %>
